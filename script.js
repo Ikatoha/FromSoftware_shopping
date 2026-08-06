@@ -203,6 +203,21 @@ document.querySelectorAll(".cat-btn").forEach(btn => {
   });
 });
 
+// ============ CUSTOM MESSAGE MODAL (replaces browser alert) ============
+function showMessage(text) {
+  document.getElementById("messageText").textContent = text;
+  document.getElementById("messageModal").classList.add("show");
+}
+
+function closeMessage() {
+  document.getElementById("messageModal").classList.remove("show");
+}
+
+document.getElementById("messageOk").addEventListener("click", closeMessage);
+document.getElementById("messageModal").addEventListener("click", (e) => {
+  if (e.target.id === "messageModal") closeMessage();
+});
+
 document.getElementById("searchInput").addEventListener("input", (e) => {
   currentSearch = e.target.value;
   renderProducts();
@@ -210,10 +225,10 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
 
 document.getElementById("checkoutBtn").addEventListener("click", () => {
   if (cart.length === 0) {
-    alert("Your cart is empty. Add something before checking out.");
+    showMessage("Your cart is empty. Add something before checking out.");
     return;
   }
-  alert("Thank you for your purchase, Tarnished. Your wares will arrive... eventually.");
+  showMessage("Thank you for your purchase, Tarnished. Your wares will arrive... eventually.");
   cart = [];
   renderCart();
   closeCart();

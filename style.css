@@ -442,6 +442,53 @@ img { max-width: 100%; display: block; }
 }
 .add-btn:hover { background: #921f1f; }
 
+/* ============ MESSAGE MODAL (replaces browser alert) ============ */
+.message-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.message-modal.show { display: flex; }
+
+.message-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 28px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+.message-card h3 {
+  color: var(--ember);
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.message-card p {
+  color: var(--parchment);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.message-card button {
+  background: var(--blood);
+  color: var(--parchment);
+  border: none;
+  padding: 10px 28px;
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.message-card button:hover {
+  background: #921f1f;
+}
+
 /* ============ DISCLAIMER ============ */
 .disclaimer {
   text-align: center;
